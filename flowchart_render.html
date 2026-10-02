@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LogixSense Application Flow</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 1920px;
+      height: 1080px;
+      background: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Title bar */
+    .title-bar {
+      position: absolute; top: 0; left: 0; width: 1920px; height: 80px;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      display: flex; align-items: center; justify-content: center;
+      gap: 20px; z-index: 10;
+    }
+    .title-bar h1 {
+      font-size: 32px; font-weight: 900; color: #fff;
+      text-transform: uppercase; letter-spacing: 3px;
+    }
+    .title-bar .accent { color: #00d4aa; }
+
+    /* Footer */
+    .footer {
+      position: absolute; bottom: 0; left: 0; width: 1920px; height: 40px;
+      background: linear-gradient(135deg, #00d4aa, #00b4d8);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer span {
+      font-size: 14px; font-weight: 800; color: #1a1a2e;
+      text-transform: uppercase; letter-spacing: 2px;
+    }
+
+    /* Nodes */
+    .node {
+      position: absolute; z-index: 8;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 6px;
+    }
+    .node-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+    .node-icon.orange { background: #ff9f43; }
+    .node-icon.blue { background: #54a0ff; }
+    .node-icon.green { background: #00d2d3; }
+    .node-icon.purple { background: #a29bfe; }
+    .node-icon.red { background: #ff6b6b; }
+    .node-icon.teal { background: #1dd1a1; }
+    .node-icon.pink { background: #fd79a8; }
+    .node-icon.yellow { background: #feca57; }
+    .node-icon.indigo { background: #5f27cd; }
+    .node-icon.sky { background: #0abde3; }
+    .node-icon.lime { background: #10ac84; }
+    .node-icon.coral { background: #ee5a24; }
+
+    .node-label {
+      font-size: 11px; font-weight: 700; color: #2d3436;
+      max-width: 130px; line-height: 1.3;
+    }
+
+    /* Top entry node (special) */
+    .entry-node {
+      position: absolute; z-index: 8;
+      display: flex; align-items: center; gap: 10px;
+      background: #1a1a2e; color: #fff;
+      padding: 12px 28px; border-radius: 30px;
+      font-size: 15px; font-weight: 700;
+      box-shadow: 0 6px 20px rgba(26,26,46,0.3);
+    }
+    .entry-node .icon { font-size: 20px; }
+
+    /* SVG */
+    #svg {
+      position: absolute; top: 0; left: 0; width: 1920px; height: 1080px;
+      z-index: 2; pointer-events: none;
+    }
+    .line {
+      fill: none; stroke: #b2bec3; stroke-width: 2px;
+      stroke-linecap: round; opacity: 0.6;
+    }
+    .line.thick { stroke-width: 2.5px; opacity: 0.7; }
+    .line.blue { stroke: #54a0ff; }
+    .line.green { stroke: #1dd1a1; }
+    .line.orange { stroke: #ff9f43; }
+    .line.red { stroke: #ff6b6b; stroke-width: 3px; opacity: 0.8; }
+    .line.purple { stroke: #a29bfe; }
+
+    /* Section labels */
+    .section-label {
+      position: absolute; z-index: 9;
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 2px; color: #636e72;
+      background: #f0f0f0; padding: 4px 12px; border-radius: 4px;
+      border: 1px solid #dfe6e9;
+    }
+    .section-label.blue { color: #0984e3; background: #dfe6e9; }
+    .section-label.green { color: #00b894; background: #dfe6e9; }
+    .section-label.purple { color: #6c5ce7; background: #dfe6e9; }
+  </style>
+</head>
+<body>
+
+<!-- Title -->
+<div class="title-bar">
+  <h1>Application <span class="accent">Flow</span></h1>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <span>LogixSense — Smart Supply Chain Management Platform</span>
+</div>
+
+<!-- ==================== ROW 1: LOGIN ==================== -->
+<div class="entry-node" style="left: 840px; top: 105px;">
+  <span class="icon">🔐</span> Login / Register
+</div>
+
+<!-- ==================== ROW 2: ROLE SPLIT ==================== -->
+<div class="node" style="left: 380px; top: 195px;">
+  <div class="node-icon orange">👔</div>
+  <div class="node-label">Manager Role</div>
+</div>
+<div class="node" style="left: 1450px; top: 195px;">
+  <div class="node-icon green">🚛</div>
+  <div class="node-label">Driver Role</div>
+</div>
+
+<!-- Section Labels -->
+<div class="section-label blue" style="left: 100px; top: 280px;">Manager Console Features</div>
+<div class="section-label green" style="left: 1430px; top: 280px;">Driver PWA Features</div>
+<div class="section-label purple" style="left: 830px; top: 680px;">Backend & AI Engine</div>
+
+<!-- ==================== ROW 3: MANAGER FEATURES (LEFT) ==================== -->
+<div class="node" style="left: 70px; top: 320px;">
+  <div class="node-icon blue">📈</div>
+  <div class="node-label">Operations Dashboard</div>
+</div>
+<div class="node" style="left: 220px; top: 320px;">
+  <div class="node-icon sky">📦</div>
+  <div class="node-label">Shipment Manager</div>
+</div>
+<div class="node" style="left: 370px; top: 320px;">
+  <div class="node-icon teal">🗺️</div>
+  <div class="node-label">Route Optimization</div>
+</div>
+<div class="node" style="left: 520px; top: 320px;">
+  <div class="node-icon red">⚠️</div>
+  <div class="node-label">Disruption Alerts</div>
+</div>
+
+<div class="node" style="left: 70px; top: 440px;">
+  <div class="node-icon pink">🔔</div>
+  <div class="node-label">Notifications & SOS Alerts</div>
+</div>
+<div class="node" style="left: 220px; top: 440px;">
+  <div class="node-icon lime">⛽</div>
+  <div class="node-label">Fuel & Carbon Reports</div>
+</div>
+<div class="node" style="left: 370px; top: 440px;">
+  <div class="node-icon purple">🛡️</div>
+  <div class="node-label">Driver Safety Analytics</div>
+</div>
+<div class="node" style="left: 520px; top: 440px;">
+  <div class="node-icon yellow">👤</div>
+  <div class="node-label">Manager Profile & Settings</div>
+</div>
+
+<!-- ==================== ROW 3: DRIVER FEATURES (RIGHT) ==================== -->
+<div class="node" style="left: 1300px; top: 320px;">
+  <div class="node-icon teal">🏢</div>
+  <div class="node-label">Company Selection</div>
+</div>
+<div class="node" style="left: 1450px; top: 320px;">
+  <div class="node-icon sky">📍</div>
+  <div class="node-label">GPS Tracking</div>
+</div>
+<div class="node" style="left: 1600px; top: 320px;">
+  <div class="node-icon blue">🚛</div>
+  <div class="node-label">Ongoing Trip View</div>
+</div>
+<div class="node" style="left: 1750px; top: 320px;">
+  <div class="node-icon orange">⏳</div>
+  <div class="node-label">Stoppage Logger</div>
+</div>
+
+<div class="node" style="left: 1300px; top: 440px;">
+  <div class="node-icon lime">📝</div>
+  <div class="node-label">Delivery Confirmation</div>
+</div>
+<div class="node" style="left: 1450px; top: 440px;">
+  <div class="node-icon purple">📋</div>
+  <div class="node-label">Trip History</div>
+</div>
+<div class="node" style="left: 1600px; top: 440px;">
+  <div class="node-icon yellow">👤</div>
+  <div class="node-label">Driver Profile</div>
+</div>
+<div class="node" style="left: 1750px; top: 440px;">
+  <div class="node-icon red">🆘</div>
+  <div class="node-label">SOS Emergency</div>
+</div>
+
+<!-- ==================== ROW 4: BOTH SYNC DOWN ==================== -->
+<!-- Connector nodes -->
+<div class="node" style="left: 300px; top: 570px;">
+  <div class="node-icon blue" style="width:44px;height:44px;font-size:20px;">⬇️</div>
+  <div class="node-label">Data Sync</div>
+</div>
+<div class="node" style="left: 1530px; top: 570px;">
+  <div class="node-icon green" style="width:44px;height:44px;font-size:20px;">⬇️</div>
+  <div class="node-label">Data Sync</div>
+</div>
+
+<!-- ==================== ROW 5: BACKEND & AI ==================== -->
+<div class="node" style="left: 620px; top: 730px;">
+  <div class="node-icon indigo" style="color:#fff;">☁️</div>
+  <div class="node-label">Cloud Firestore (Real-time DB)</div>
+</div>
+<div class="node" style="left: 810px; top: 730px;">
+  <div class="node-icon indigo" style="color:#fff;">🔐</div>
+  <div class="node-label">Firebase Auth</div>
+</div>
+<div class="node" style="left: 1000px; top: 730px;">
+  <div class="node-icon coral" style="color:#fff;">✨</div>
+  <div class="node-label">Gemini AI Engine</div>
+</div>
+<div class="node" style="left: 1190px; top: 730px;">
+  <div class="node-icon coral" style="color:#fff;">🤖</div>
+  <div class="node-label">Groq Llama (Fallback)</div>
+</div>
+
+<div class="node" style="left: 700px; top: 870px;">
+  <div class="node-icon sky" style="color:#fff;">🌤️</div>
+  <div class="node-label">OpenWeather API</div>
+</div>
+<div class="node" style="left: 910px; top: 870px;">
+  <div class="node-icon pink" style="color:#fff;">💬</div>
+  <div class="node-label">AI Chat Assistant</div>
+</div>
+<div class="node" style="left: 1110px; top: 870px;">
+  <div class="node-icon teal" style="color:#fff;">📡</div>
+  <div class="node-label">Service Worker (PWA / Offline)</div>
+</div>
+
+<!-- SVG CONNECTIONS -->
+<svg id="svg">
+  <defs>
+    <marker id="ao" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1.5L8 5 0 8.5z" fill="#ff9f43"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1.5L8 5 0 8.5z" fill="#1dd1a1"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1.5L8 5 0 8.5z" fill="#54a0ff"/></marker>
+    <marker id="agr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1.5L8 5 0 8.5z" fill="#b2bec3"/></marker>
+    <marker id="ap" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1.5L8 5 0 8.5z" fill="#a29bfe"/></marker>
+  </defs>
+
+  <!-- Login -> Manager Role -->
+  <path class="line orange thick" d="M870,140 C870,160 410,170 410,195" marker-end="url(#ao)"/>
+  <!-- Login -> Driver Role -->
+  <path class="line green thick" d="M1000,140 C1000,160 1480,170 1480,195" marker-end="url(#ag)"/>
+
+  <!-- Manager Role -> feature row -->
+  <path class="line thick" d="M410,265 L100,320" marker-end="url(#agr)"/>
+  <path class="line thick" d="M410,265 L250,320" marker-end="url(#agr)"/>
+  <path class="line thick" d="M410,265 L400,320" marker-end="url(#agr)"/>
+  <path class="line thick" d="M410,265 L550,320" marker-end="url(#agr)"/>
+
+  <!-- Manager row1 -> row2 connectors -->
+  <path class="line" d="M100,395 L100,440" marker-end="url(#agr)"/>
+  <path class="line" d="M250,395 L250,440" marker-end="url(#agr)"/>
+  <path class="line" d="M400,395 L400,440" marker-end="url(#agr)"/>
+  <path class="line" d="M550,395 L550,440" marker-end="url(#agr)"/>
+
+  <!-- Driver Role -> feature row -->
+  <path class="line thick" d="M1480,265 L1330,320" marker-end="url(#agr)"/>
+  <path class="line thick" d="M1480,265 L1480,320" marker-end="url(#agr)"/>
+  <path class="line thick" d="M1480,265 L1630,320" marker-end="url(#agr)"/>
+  <path class="line thick" d="M1480,265 L1780,320" marker-end="url(#agr)"/>
+
+  <!-- Driver row1 -> row2 connectors -->
+  <path class="line" d="M1330,395 L1330,440" marker-end="url(#agr)"/>
+  <path class="line" d="M1480,395 L1480,440" marker-end="url(#agr)"/>
+  <path class="line" d="M1630,395 L1630,440" marker-end="url(#agr)"/>
+  <path class="line" d="M1780,395 L1780,440" marker-end="url(#agr)"/>
+
+  <!-- Manager features -> Data Sync -->
+  <path class="line blue thick" d="M330,520 L330,570" marker-end="url(#ab)"/>
+
+  <!-- Driver features -> Data Sync -->
+  <path class="line green thick" d="M1560,520 L1560,570" marker-end="url(#ag)"/>
+
+  <!-- Data Sync Left -> Firestore -->
+  <path class="line blue thick" d="M330,630 C330,680 650,700 650,730" marker-end="url(#ab)"/>
+
+  <!-- Data Sync Right -> Firestore -->
+  <path class="line green thick" d="M1560,630 C1560,680 680,700 680,730" marker-end="url(#ag)"/>
+
+  <!-- Firestore -> Gemini -->
+  <path class="line purple thick" d="M700,810 C700,830 1030,830 1030,730" marker-end="url(#ap)"/>
+
+  <!-- Weather -> Gemini -->
+  <path class="line" d="M760,890 C900,890 1030,860 1030,810" marker-end="url(#agr)"/>
+
+  <!-- Gemini -> Firestore (AI results back) -->
+  <path class="line purple" d="M1030,810 C1030,830 700,830 700,810"/>
+</svg>
+
+</body>
+</html>

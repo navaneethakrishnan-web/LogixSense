@@ -1,0 +1,9 @@
+{
+  "name": "logixsense",
+  "private": true,
+  "scripts": {
+    "dev": "node dev-server.js",
+    "start": "node dev-server.js",
+    "netlify": "netlify dev"
+  }
+}

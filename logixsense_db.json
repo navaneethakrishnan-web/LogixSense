@@ -1,0 +1,211 @@
+{
+  "companies": [
+    {
+      "id": "comp_01",
+      "name": "Express Logistics India",
+      "code": "ELI-01",
+      "created_at": "2026-08-10T23:45:47.280Z"
+    },
+    {
+      "id": "comp_02",
+      "name": "Southern Freight Lines",
+      "code": "SFL-02",
+      "created_at": "2026-08-10T23:45:47.282Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "usr_admin",
+      "email": "admin@logixsense.com",
+      "name": "System Admin",
+      "role": "admin",
+      "company_id": "comp_01",
+      "preferred_language": "en"
+    },
+    {
+      "id": "usr_driver1",
+      "email": "arun@logixsense.com",
+      "name": "Arun Kumar",
+      "role": "driver",
+      "company_id": "comp_01",
+      "preferred_language": "ta"
+    },
+    {
+      "id": "usr_driver2",
+      "email": "rahul@logixsense.com",
+      "name": "Rahul Sharma",
+      "role": "driver",
+      "company_id": "comp_01",
+      "preferred_language": "hi"
+    }
+  ],
+  "shipments": [
+    {
+      "id": "SHP1001",
+      "shipment_number": "SHP-2026-001",
+      "company_id": "comp_01",
+      "driver_id": "usr_driver1",
+      "origin": "Chennai Port, TN",
+      "destination": "Bengaluru Hub, KA",
+      "status": "in_transit",
+      "risk_level": "low",
+      "eta": "4 hours",
+      "created_at": "2026-08-10T23:45:47.282Z"
+    },
+    {
+      "id": "SHP1002",
+      "shipment_number": "SHP-2026-002",
+      "company_id": "comp_01",
+      "driver_id": "usr_driver2",
+      "origin": "Mumbai JNPT, MH",
+      "destination": "Pune Industrial Zone, MH",
+      "status": "in_transit",
+      "risk_level": "high",
+      "eta": "2 hours",
+      "created_at": "2026-08-10T23:45:47.282Z"
+    },
+    {
+      "id": "SHP1003",
+      "shipment_number": "SHP-2026-003",
+      "company_id": "comp_01",
+      "driver_id": "usr_driver1",
+      "origin": "Delhi NCR Cargo Term",
+      "destination": "Agra Freight Depot, UP",
+      "status": "pending",
+      "risk_level": "medium",
+      "eta": "3 hours",
+      "created_at": "2026-08-10T23:45:47.282Z"
+    }
+  ],
+  "routes": [
+    {
+      "id": "ROT001",
+      "shipment_id": "SHP1001",
+      "origin": "Chennai Port, TN",
+      "destination": "Bengaluru Hub, KA",
+      "distance_km": 346.5,
+      "est_time_mins": 360,
+      "time_saved_mins": 45,
+      "risk_score": 12
+    },
+    {
+      "id": "ROT002",
+      "shipment_id": "SHP1002",
+      "origin": "Mumbai JNPT, MH",
+      "destination": "Pune Industrial Zone, MH",
+      "distance_km": 148,
+      "est_time_mins": 180,
+      "time_saved_mins": 15,
+      "risk_score": 82
+    }
+  ],
+  "alerts": [
+    {
+      "id": "ALT001",
+      "shipment_id": "SHP1002",
+      "route_info": "Mumbai to Pune via NH48",
+      "risk_score": 82,
+      "explanation": "Heavy congestion at Khopoli ghat. Monsoon-related road damage detected.",
+      "status": "active",
+      "created_at": "2026-08-10T23:45:47.282Z"
+    },
+    {
+      "id": "ALT002",
+      "shipment_id": "SHP1003",
+      "route_info": "Delhi to Agra via NH19",
+      "risk_score": 55,
+      "explanation": "Toll plaza congestion near Mathura. Moderate delay expected.",
+      "status": "active",
+      "created_at": "2026-08-10T23:45:47.282Z"
+    }
+  ],
+  "stoppages": [
+    {
+      "id": "STP001",
+      "shipment_id": "SHP1001",
+      "driver_id": "usr_driver1",
+      "location": "Vellore Toll Plaza, TN",
+      "duration_mins": 25,
+      "reason": "Scheduled mandatory driver break & rest",
+      "created_at": "2026-08-10T23:45:47.282Z"
+    },
+    {
+      "id": "STP002",
+      "shipment_id": "SHP1002",
+      "driver_id": "usr_driver2",
+      "location": "Lonavala Expressway Rest Area",
+      "duration_mins": 40,
+      "reason": "Vehicle tire inspection & refueling",
+      "created_at": "2026-08-10T23:45:47.282Z"
+    }
+  ],
+  "assignments": [
+    {
+      "id": "ASN001",
+      "shipment_id": "SHP1001",
+      "driver_uid": "usr_driver1",
+      "company_id": "comp_01",
+      "status": "assigned",
+      "assigned_at": "2026-08-10T23:45:47.282Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "NOT001",
+      "user_id": "usr_driver1",
+      "driver_uid": "usr_driver1",
+      "company_id": "comp_01",
+      "title": "Route Alert",
+      "message": "Heavy rain predicted on NH48",
+      "is_read": 0,
+      "created_at": "2026-08-10T23:45:47.282Z"
+    }
+  ],
+  "trip_logs": [
+    {
+      "id": "LOG001",
+      "driver_id": "usr_driver1",
+      "month": "2026-08",
+      "co2_emitted_kg": 420.5,
+      "co2_saved_kg": 68,
+      "fuel_consumed_l": 155.2
+    },
+    {
+      "id": "LOG002",
+      "driver_id": "usr_driver2",
+      "month": "2026-08",
+      "co2_emitted_kg": 510,
+      "co2_saved_kg": 42.5,
+      "fuel_consumed_l": 188
+    }
+  ],
+  "behavior_events": [
+    {
+      "id": "EVT001",
+      "driver_id": "usr_driver1",
+      "shipment_id": "SHP1001",
+      "event_type": "harsh_braking",
+      "severity": "low",
+      "detected_at": "2026-08-10T23:45:47.283Z"
+    }
+  ],
+  "driver_scores": [
+    {
+      "driver_id": "usr_driver1",
+      "driver_name": "Arun Kumar",
+      "safety_score": 94,
+      "eco_score": 91,
+      "total_trips": 142,
+      "updated_at": "2026-08-10T23:45:47.283Z"
+    },
+    {
+      "driver_id": "usr_driver2",
+      "driver_name": "Rahul Sharma",
+      "safety_score": 87,
+      "eco_score": 85,
+      "total_trips": 98,
+      "updated_at": "2026-08-10T23:45:47.283Z"
+    }
+  ],
+  "sos_alerts": []
+}

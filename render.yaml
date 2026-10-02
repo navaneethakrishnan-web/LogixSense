@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: logixsense-sql-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node dev-server.js
+    envVars:
+      - key: NODE_ENV
+        value: production

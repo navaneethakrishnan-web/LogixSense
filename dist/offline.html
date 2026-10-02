@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LogixSense — Offline</title>
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #050810;
+      color: #e8edf5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+      text-align: center;
+    }
+    .card { max-width: 420px; }
+    .icon { font-size: 64px; margin-bottom: 16px; }
+    h1 { font-size: 24px; margin: 0 0 8px; }
+    p { color: #6b7a99; line-height: 1.5; margin: 0 0 20px; }
+    button {
+      background: rgba(0, 170, 255, 0.15);
+      border: 1px solid rgba(0, 170, 255, 0.35);
+      color: #00aaff;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">📡</div>
+    <h1>You're Offline</h1>
+    <p>LogixSense needs an internet connection for live shipments, maps, and AI analysis. Cached pages may still be available when you reconnect.</p>
+    <button type="button" onclick="location.reload()">Try Again</button>
+  </div>
+</body>
+</html>
